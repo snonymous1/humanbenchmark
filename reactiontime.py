@@ -14,7 +14,7 @@ def click_on_green():
             color = pyautogui.pixel(x, y)
 
             # Check if the color is green (you might need to adjust the values based on your specific green shade)
-            if color == (60, 215, 92):
+            if color == (75, 219, 106):
                 # Click if the color is green
                 pyautogui.click(x, y)
                 print("Clicked at", x, y)

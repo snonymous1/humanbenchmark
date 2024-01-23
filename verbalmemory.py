@@ -8,6 +8,9 @@ import pyautogui
 import time
 import pytesseract
 
+#You may need this line if you are on windows
+pytesseract.pytesseract.tesseract_cmd = 'C:\Program Files\Tesseract-OCR\\tesseract.exe'
+
 def check_word_status(word, old_words):
     if word in old_words:
         return "Old word"

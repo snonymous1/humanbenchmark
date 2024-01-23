@@ -8,6 +8,7 @@
 
 import pyautogui
 import time
+from PIL import Image, ImageDraw
 
 def find_white_pixel(x, y, width, height, tolerance=10):
     screenshot = pyautogui.screenshot(region=(x, y, width, height))
@@ -18,6 +19,12 @@ def find_white_pixel(x, y, width, height, tolerance=10):
             if all(abs(channel - 255) <= tolerance for channel in pixel_color):
                 return True, (x + i, y + j)
     return False, None
+
+def draw_rectangle(x, y, width, height):
+    screenshot = pyautogui.screenshot()
+    draw = ImageDraw.Draw(screenshot)
+    draw.rectangle([x, y, x + width, y + height], outline="red", width=2)
+    #screenshot.show()
 
 # Wait for 5 seconds before starting
 time.sleep(5)
@@ -30,6 +37,9 @@ area_x = 300
 area_y = 200
 area_width = 900
 area_height = 600
+
+# Draw a box around the search area
+draw_rectangle(area_x, area_y, area_width, area_height)
 
 # Loop until 30 white pixels are found
 click_count = 0
