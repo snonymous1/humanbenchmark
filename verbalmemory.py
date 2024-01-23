@@ -25,7 +25,7 @@ def main():
 
     try:
         while True:
-            time.sleep(0.1)  # Adjust this sleep time based on your needs
+            #time.sleep(0.01)  # Adjust this sleep time based on your needs
 
             # Capture the screenshot within the specified coordinates
             region = (500, 350, 500, 100)
